@@ -12,21 +12,21 @@ public class WordFuctions : MonoBehaviour
         else Destroy(this);
     }
 
-    #region cresent_moon
-    public Transform cresentT;
-    public Color cresentCamBG;
-    public void cresent()
+    #region crescent_moon
+    public Transform crescentT;
+    public Color crescentCamBG;
+    public void crescent()
     {
-        cresentT.gameObject.SetActive(true);
-        Camera.main.backgroundColor = cresentCamBG;
+        crescentT.gameObject.SetActive(true);
+        Camera.main.backgroundColor = crescentCamBG;
     }
     public void night()
     {
-        cresent();
+        crescent();
     }
     public void moon()
     {
-        cresent();
+        crescent();
     }
     #endregion
     #region gear
@@ -129,19 +129,41 @@ public class WordFuctions : MonoBehaviour
         hot();
     }
     #endregion
+    #region clothes
     #region shirt
     public Transform shirtT;
     public void shirt()
     {
         shirtT.gameObject.SetActive(true);
     }
-    public void clothing()
-    {
-        shirt();
-    }
     public void tee()
     {
         shirt();
+    }
+    #endregion
+    #region leggings
+    public Transform leggingsT;
+    public void leggings()
+    {
+        leggingsT.gameObject.SetActive(true);
+    }
+    public void pants()
+    {
+        leggings();
+    }
+    public void jeans()
+    {
+        leggings();
+    }
+    public void shorts()
+    {
+        leggings();
+    }
+    #endregion
+    public void clothing()
+    {
+        shirt();
+        leggings();
     }
     #endregion
     #region guts
@@ -168,6 +190,7 @@ public class WordFuctions : MonoBehaviour
     #region note
     public Transform[] noteT;
     public Transform[] notesT;
+    public Transform flatT;
     public AudioSource bgm;
     public void note()
     {
@@ -218,7 +241,12 @@ public class WordFuctions : MonoBehaviour
     {
         mute();
     }
+    public void flat()
+    {
+        flatT.gameObject.SetActive(true);
+    }
     #endregion
+    #region elements
     #region gold
     public Transform[] goldT;
     public Color goldCamBG;
@@ -231,11 +259,55 @@ public class WordFuctions : MonoBehaviour
         }
     }
     #endregion
+    #region silver
+    public Transform[] silverT;
+    public Color silverCamBG;
+    public void silver()
+    {
+        Camera.main.backgroundColor = silverCamBG;
+        for (int i = 0; i < silverT.Length; i++)
+        {
+            silverT[i].gameObject.SetActive(true);
+        }
+    }
+    #endregion
+    #endregion
     #region underwear
     public Transform thongT;
     public void thong()
     {
         thongT.gameObject.SetActive(true);
+    }
+    public void panty()
+    {
+        thong();
+    }
+    public void panties()
+    {
+        thong();
+    }
+    public void underwear()
+    {
+        thong();
+    }
+    #endregion
+    #region glasses
+    public Transform glassesT;
+    public void glasses()
+    {
+        glassesT.gameObject.SetActive(true);
+    }
+    public void lens()
+    {
+        glasses();
+    }
+    public void sight()
+    {
+        glasses();
+    }
+    public void eyewear()
+    {
+        glasses();
     }
     #endregion
     #region weapons
@@ -372,6 +444,10 @@ public class WordFuctions : MonoBehaviour
     {
         shell();
     }
+    public void sea()
+    {
+        shell();
+    }
     #endregion
     #region fence
     public Transform fenceT;
@@ -413,12 +489,162 @@ public class WordFuctions : MonoBehaviour
         magnetT.gameObject.SetActive(true);
     }
     #endregion
-
-    public void hint()
+    #region mail
+    public Transform mailT;
+    public void mail()
     {
-        Debug.Log("ihint");//
+        mailT.gameObject.SetActive(true);
     }
+    public void envelope()
+    {
+        mail();
+    }
+    public void letter()
+    {
+        mail();
+    }
+    public void message()
+    {
+        mail();
+    }
+    #endregion
+    #region math
+    public Transform plusT;
+    public Transform multiplyT;
+    public Transform sumT;
 
+    public void plus()
+    {
+        plusT.gameObject.SetActive(true);
+    }
+    public void add()
+    {
+        plus();
+    }
+    public void multiply()
+    {
+        multiplyT.gameObject.SetActive(true);
+    }
+    public void times()
+    {
+        multiply();
+    }
+    public void sum()
+    {
+        sumT.gameObject.SetActive(true);
+    }
+    public void total()
+    {
+        sum();
+    }
+    public void aggregate()
+    {
+        sum();
+    }
+    public void math()
+    {
+        plus();
+        multiply();
+        sum();
+    }
+    public void equation()
+    {
+        math();
+    }
+    public void calculate()
+    {
+        math();
+    }
+    #endregion
+    #region hook
+    public Transform hookT;
+    public void hook()
+    {
+        hookT.gameObject.SetActive(true);
+    }
+    public void fishing()
+    {
+        hook();
+    }
+    #endregion
+    #region crate
+    public Transform crateT;
+    public void crate()
+    {
+        crateT.gameObject.SetActive(true);
+    }
+    public void box()
+    {
+        crate();
+    }
+    public void container()
+    {
+        crate();
+    }
+    #endregion
+    #region search
+    public Transform magnifyingGlassT;
+    public void search()
+    {
+        magnifyingGlassT.gameObject.SetActive(true);
+    }
+    public void find()
+    {
+        search();
+    }
+    public void magnification()
+    {
+        search();
+    }
+    public void magnify()
+    {
+        search();
+    }
+    public void zoom()
+    {
+        search();
+    }
+    #endregion
+    #region cone
+    public Transform coneT;
+    public void cone()
+    {
+        coneT.gameObject.SetActive(true);
+    }
+    public void traffic()
+    {
+        cone();
+    }
+    #endregion
+    #region tools
+    #region hammer
+    public Transform hammerT;
+    public void hammer()
+    {
+        hammerT.gameObject.SetActive(true);
+    }
+    public void mallet()
+    {
+        hammer();
+    }
+    #endregion
+    #region drill
+    public Transform drillT;
+    public void drill()
+    {
+        drillT.gameObject.SetActive(true);
+    }
+    #endregion
+    public void tool()
+    {
+        hammer();
+        drill();
+    }
+    public void tools()
+    {
+        tool();
+    }
+    #endregion
     #region win
     public Transform[] winText;
     public Color winCamBg;
@@ -467,4 +693,5 @@ public class WordFuctions : MonoBehaviour
         lose();
     }
     #endregion
+
 }
