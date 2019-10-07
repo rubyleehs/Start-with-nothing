@@ -194,9 +194,29 @@ public class WordFuctions : MonoBehaviour
     {
         sing();
     }
+    public void sound()
+    {
+        sing();
+    }
     public void music()
     {
         sing();
+    }
+    public void mute()
+    {
+        bgm.mute = true;
+    }
+    public void silent()
+    {
+        mute();
+    }
+    public void silence()
+    {
+        mute();
+    }
+    public void quiet()
+    {
+        mute();
     }
     #endregion
     #region gold

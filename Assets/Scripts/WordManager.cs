@@ -15,6 +15,9 @@ public class WordManager : MonoBehaviour
     public AudioSource indicatorSource;
     public AudioClip correctSFX, repeatSFX, wrongSFX;
 
+    public TMPro.TextMeshProUGUI countText;
+    private int totalValidWordsFormed = 0;
+
 
     public List<LetterItem> letters; //ordered by y position
     private List<LetterItem> lettersInCheck; //for calculation purposes
@@ -132,6 +135,11 @@ public class WordManager : MonoBehaviour
 
             if (isWord)
             {
+                if (!history.Contains(stringFormed))
+                {
+                    totalValidWordsFormed++;
+                    countText.text = "" + totalValidWordsFormed;
+                }
                 MethodInfo mi = WordFuctions.instance.GetType().GetMethod(stringFormed);
                 if (mi != null) mi.Invoke(WordFuctions.instance, null);
                 history.Add(stringFormed);
