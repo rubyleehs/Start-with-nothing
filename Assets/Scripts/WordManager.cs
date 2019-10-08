@@ -51,7 +51,13 @@ public class WordManager : MonoBehaviour
         while (minIndex <= maxIndex)
         {
             int mid = (minIndex + maxIndex) / 2;
-            if (y == letters[mid].transform.position.y) return mid;
+            if (y == letters[mid].transform.position.y)
+            {
+                float x = item.transform.position.x;
+                while (mid >= 0 && mid < letters.Count && x < letters[mid].transform.position.x && y == letters[mid].transform.position.y) mid--;
+                while (mid >= 0 && mid < letters.Count && x > letters[mid].transform.position.x && y == letters[mid].transform.position.y) mid++;
+                return mid;
+            }
             else if (y < letters[mid].transform.position.y) maxIndex = mid - 1;
             else minIndex = mid + 1;
         }
@@ -69,8 +75,12 @@ public class WordManager : MonoBehaviour
             int mid = (minIndex + maxIndex) / 2;
             if (y == letters[mid].transform.position.y)
             {
-                letters.Insert(mid + 1, item);
-                return mid + 1;
+                float x = item.transform.position.x;
+                while (mid - 1 >= 0 && mid - 1 < letters.Count && x < letters[mid - 1].transform.position.x && y == letters[mid - 1].transform.position.y) mid--;
+                while (mid >= 0 && mid  < letters.Count && x > letters[mid].transform.position.x && y == letters[mid].transform.position.y) mid++;
+                if (mid == letters.Count) letters.Add(item);
+                else letters.Insert(mid, item);
+                return mid;
             }
             else if (y < letters[mid].transform.position.y) maxIndex = mid - 1;
             else minIndex = mid + 1;
