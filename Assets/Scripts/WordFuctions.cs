@@ -122,9 +122,13 @@ public class WordFuctions : MonoBehaviour
     public void hot()
     {
         thermometerT.gameObject.SetActive(true);
-        Camera.main.backgroundColor = hotCamBG;
+        Camera.main.backgroundColor = hotCamBG;//
     }
     public void heat()
+    {
+        hot();
+    }
+    public void sick()
     {
         hot();
     }
@@ -596,6 +600,10 @@ public class WordFuctions : MonoBehaviour
     {
         search();
     }
+    public void magnifiying()
+    {
+        search();
+    }
     public void magnify()
     {
         search();
@@ -643,6 +651,73 @@ public class WordFuctions : MonoBehaviour
     public void tools()
     {
         tool();
+    }
+    #endregion
+    #region glitch
+    public Kino.DigitalGlitch digitalGlitch;
+    public float dgIntensity = 0.18f;
+    public float dgDuration = 15f;
+    public IEnumerator Glitch()
+    {
+        WordManager.instance.countText.text = "9999999";
+        digitalGlitch.intensity = dgIntensity;
+        yield return new WaitForSeconds(dgDuration);
+        digitalGlitch.intensity = 0;
+        WordManager.instance.countText.text = WordManager.instance.totalValidWordsFormed + "";
+    }
+    public void glitch()
+    {
+        StartCoroutine(Glitch());
+    }
+    public void error()
+    {
+        glitch();
+    }
+    public void flaw()
+    {
+        glitch();
+    }
+    public void defect()
+    {
+        glitch();
+    }
+    #endregion
+    #region movie
+    public Kino.AnalogGlitch analogGlitch;
+    public float agDuration = 15;
+    public float agIntensity = 1;
+
+    public IEnumerator Movie()
+    {
+        float timer = 0;
+        float progress = 0;
+        while(progress < 1)
+        {
+            timer += Time.deltaTime;
+            progress = Mathf.Lerp(0, 2, timer / agDuration);
+
+            if(progress < 0.5f) analogGlitch.verticalJump = Mathf.SmoothStep(0, 1, progress * 2);
+            else analogGlitch.verticalJump = Mathf.SmoothStep(1, 0,(progress * 2) - 1);
+            yield return new WaitForEndOfFrame();
+        }
+        analogGlitch.verticalJump = 0;
+    }
+
+    public void movie()
+    {
+        StartCoroutine(Movie());
+    }
+    public void show()
+    {
+        movie();
+    }
+    public void video()
+    {
+        movie();
+    }
+    public void film()
+    {
+        movie();
     }
     #endregion
     #region win

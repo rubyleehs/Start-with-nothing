@@ -16,7 +16,7 @@ public class WordManager : MonoBehaviour
     public AudioClip correctSFX, repeatSFX, wrongSFX;
 
     public TMPro.TextMeshProUGUI countText;
-    private int totalValidWordsFormed = 0;
+    public int totalValidWordsFormed = 0;
 
 
     public List<LetterItem> letters; //ordered by y position
